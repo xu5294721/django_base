@@ -7,5 +7,10 @@ from django.shortcuts import render, HttpResponse
 # 2.必须返回一个响应
 
 def index(request):
+    context = {
+        'name': '测试点我的书籍',
+    }
 
-    return HttpResponse('欢迎')
+    #  render() 绚览
+    #  request, template_name, context = None,
+    return render(request, 'book/index.html', context=context)
