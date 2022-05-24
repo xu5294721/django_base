@@ -27,6 +27,9 @@ class BookInfo(models.Model):
     class Meta:
         db_table = 'bookinfo'
 
+    def __str__(self):
+        return self.name
+
 
 # 定义人物信息类
 class PeopleInfo(models.Model):
@@ -46,3 +49,6 @@ class PeopleInfo(models.Model):
     # 重定义表名
     class Meta:
         db_table = 'peopleinfo'
+
+    def __str__(self):
+        return self.name
