@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4364d191-3825-4ed6-aa0d-12a21f8b5f11" name="变更" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/book/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/book/views.py" afterDir="false" />
     </list>
@@ -41,7 +39,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../bookmanager" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../bookmanager03" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunManager" selected="Python.views">
@@ -110,7 +108,11 @@
       <workItem from="1653312402190" duration="1680000" />
       <workItem from="1653374079007" duration="4087000" />
       <workItem from="1653445916704" duration="5156000" />
-      <workItem from="1653464889442" duration="2723000" />
+      <workItem from="1653464889442" duration="2855000" />
+      <workItem from="1653534645412" duration="1238000" />
+      <workItem from="1653632873017" duration="3990000" />
+      <workItem from="1653891227511" duration="781000" />
+      <workItem from="1653892388508" duration="19000" />
     </task>
     <task id="LOCAL-00001" summary="项目部署">
       <created>1653295013281</created>

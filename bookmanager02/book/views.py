@@ -7,7 +7,7 @@ def index(request):
 
 
 # 方式一： objects--相当一个代理  实现增删改查
-from book.models import BookInfo
+from book.models import BookInfo, PeopleInfo
 
 # objects 实现增
 BookInfo.objects.create(
@@ -63,7 +63,7 @@ BookInfo.objects.filter(pub_date__gt='1990-1-1')
 
 # F 对象 用于2个属性名的比较操作
 # 模型类名.objects.filter(第一个属性名__运算符=F('第二个属性名'))
-from django.db.models import F
+from django.db.models import F, Sum
 
 BookInfo.objects.filter(readcount__gt=F('commentcount'))
 
@@ -80,3 +80,30 @@ BookInfo.objects.filter(Q(id__gt=3) | Q(readcount__lt=50))
 
 # 非
 BookInfo.objects.filter(~Q(id__gt=4))
+
+# 聚合和排序函数
+# 查询图书阅读量总量
+BookInfo.objects.aggregate(Sum('readcount'))
+
+# 一对多的模型 在1中 会自动创建 多的
+# 查询书籍为1的所有人物信息
+book = BookInfo.objects.get(id=1)
+book.peopleinfo_set.all()
+
+# 查询人物为1的书籍信息
+people = PeopleInfo.objects.get(id=1)
+people.book
+
+# 类名（小写）__字段名__运算符=值
+# 查询图书，要求图书人物为"郭靖"
+BookInfo.objects.filter(peopleinfo__name='郭靖')
+
+# 查询图书，要求图书中人物的描述包含"八"
+BookInfo.objects.filter(peopleinfo__description__contains='八')
+
+# 查询书名为“天龙八部”的所有人物
+PeopleInfo.objects.filter(book__name='天龙八部')
+
+# 查询图书阅读量大于30的所有人物
+PeopleInfo.objects.filter(book__readcount__gt=30)
+
