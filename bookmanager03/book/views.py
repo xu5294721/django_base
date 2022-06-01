@@ -1,4 +1,5 @@
 from django.shortcuts import render, HttpResponse
+import json
 
 # Create your views here.
 from book.models import BookInfo, PeopleInfo
@@ -42,3 +43,26 @@ def register(request):
     req_post = request.POST
     print(req_post)
     return HttpResponse('register')
+
+
+# 4.传递JSON数据
+def json(request):
+    json_body = request.body
+    # 转换为字符串形式
+    body_str = json_body.decode()
+    print(body_str)
+    # 转换为python字典格式
+    # body_dict = json.loads(body_str)
+    # print(body_dict)
+
+    #   5.请求头
+    print(request.META['SERVER_PORT'])
+
+    return HttpResponse('JSON')
+
+
+# method 查看请求的方式 GET OR POST
+def method(request):
+    print(request.method)
+
+    return HttpResponse('method')
