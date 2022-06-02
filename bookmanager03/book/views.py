@@ -92,3 +92,53 @@ def response(request):
 # 重定向
 def redir(request):
     return redirect('https://www.baidu.com')
+
+##############################################################
+# cookie 是保存在浏览器中的数据
+
+# 服务器端设置cookie
+def set_cookie(request):
+    # 1.获取查询字符串数据
+    username = request.GET.get('username')
+    # 2.服务器端设置cookie
+    # 通过响应对象set_cookie
+    response1 = HttpResponse('set_cookie')
+    response1.set_cookie('name', username, max_age=24*60*60)
+
+    # 删除cookie
+    # response1.delete_cookie('name')
+
+    return response1
+
+
+# 获得cookie
+def get_cookie(request):
+    # request.COOKIES获取cookie，为字典数据   表现为键值对形式
+    name = request.COOKIES.get('name')
+    return HttpResponse(name)
+
+
+#########################################################
+# session 是保存在服务器端,数据相对安全
+# session 需要依赖于cookie
+
+# 设置session
+def set_session(request):
+    username = request.GET.get('username')
+    user_id = 1
+    request.session['user_id'] = user_id
+    request.session['username'] = username
+
+    return HttpResponse('set_session')
+
+
+# 获取session
+def get_session(request):
+    username = request.session.get('username')
+    user_id = request.session.get('user_id')
+    # 格式化数据，输出session
+    content = '{},{}'.format(user_id, username)
+
+    return HttpResponse(content)
+
+
