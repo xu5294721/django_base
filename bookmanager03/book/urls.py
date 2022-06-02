@@ -1,5 +1,5 @@
 from django.urls import path
-from book.views import create_book, req_url, req_query, shop_02, register, json, method
+from book.views import create_book, req_url, req_query, shop_02, register, json, method, response, redir
 
 urlpatterns = [
     path('create/', create_book),
@@ -8,6 +8,8 @@ urlpatterns = [
     path('shop02/', shop_02),
     path('register/', register),
     path('json/', json),
-    path('method/', method)
+    path('method/', method),
+    path('res/', response),
+    path('redir/', redir),
 
 ]

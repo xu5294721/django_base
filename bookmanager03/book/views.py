@@ -1,8 +1,7 @@
-from django.shortcuts import render, HttpResponse
-import json
+from django.shortcuts import HttpResponse, redirect
+
 
 # Create your views here.
-from book.models import BookInfo, PeopleInfo
 
 
 def create_book(request):
@@ -51,7 +50,7 @@ def json(request):
     # 转换为字符串形式
     body_str = json_body.decode()
     print(body_str)
-    # 转换为python字典格式
+    # 将字符串转换为python字典格式
     # body_dict = json.loads(body_str)
     # print(body_dict)
 
@@ -66,3 +65,30 @@ def method(request):
     print(request.method)
 
     return HttpResponse('method')
+
+
+# ##############Response响应头##################
+def response(request):
+    # res = HttpResponse('res11', status=201)
+    # res['name'] = 'keyone'
+
+    # 将JSON数据发送出去 ， Response处理.
+    # 利用JsonResponse 把字典转换为JSON数据
+    info = [
+        {
+            "name": "keyone",
+            "address": "nanchang",
+        },
+        {
+            "name": "keyone",
+            "address": "yingtan",
+        }
+    ]
+    from django.http import JsonResponse
+    res = JsonResponse(data=info, safe=False)
+    return res
+
+
+# 重定向
+def redir(request):
+    return redirect('https://www.baidu.com')
